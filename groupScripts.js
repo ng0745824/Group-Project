@@ -14,5 +14,18 @@ function calcTotal ()
     total = (subtotal * salesRate) + (subtotal *taxRate);
     document.getElementById("total").innerHTML = Math.round(total*100) / 100;
 }
-
+function submitInfo() {
+	var nameinput = document.getElementById("nameinput");
+    var emailinput = document.getElementById("emailinput");
+    var addressinput = document.getElementById("addressinput");
+    var cityinput = document.getElementById("cityinput");
+    var stateinput = document.getElementById("stateinput");
+	var cardName = document.getElementById("cardnameinput");
+	var cardNum = document.getElementById("cardnuminput");
+	var expMonth = document.getElementById("expmonthinput");
+	var expYear = document.getElementById("expyearinput");
+	var cvv = document.getElementById("cvvinput");
+	(nameinput.value && emailinput && addressinput && cityinput && stateinput && cardName.value && cardNum.value && expMonth.value && expYear.value && cvv.value) ? alert("Thanks for your order!") : alert("Please fill in all form fields.");
+}
+document.getElementById("submit").addEventListener("click", submitInfo, false);
 calcTotal();
