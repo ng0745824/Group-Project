@@ -29,3 +29,38 @@ function submitInfo() {
 }
 document.getElementById("submit").addEventListener("click", submitInfo, false);
 calcTotal();
+
+function printCart2() {
+    var finalPrice = 0;
+  for(i = 0; i < cartAry.length; i++){
+    var node = document.createElement("tr");
+    var textItem = document.createTextNode(cartAry[i][0]);
+    var textPrice = document.createTextNode(cartAry[i][1]);
+    var item = document.createElement("td");
+    var price = document.createElement("td");
+    node.appendChild(item);
+    node.appendChild(price);
+    item.appendChild(textItem);
+    price.appendChild(textPrice);
+    document.getElementById("cartAryTbl").appendChild(node);
+    finalPrice = finalPrice + cartAry[i][1];
+  }
+  var trhr = document.createElement("tr");
+  var tdhr = document.createElement("td");
+  var lineBreak = document.createElement("hr");
+  trhr.appendChild(tdhr);
+  tdhr.appendChild(lineBreak);
+
+  var trTotal = document.createElement("tr");
+  var tdTotal = document.createElement("td");
+  var tdTotalPrice = document.createElement("td");
+  var textItem = document.createTextNode("Total");
+  var textPrice = document.createTextNode(finalPrice);
+  trTotal.appendChild(tdTotal);
+  tdTotal.appendChild(textItem);
+  trTotal.appendChild(tdTotalPrice);
+  tdTotalPrice.appendChild(textPrice);
+  document.getElementById("cartAryTbl").appendChild(trhr);
+  document.getElementById("cartAryTbl").appendChild(trTotal);
+}
+window.addEventListener("load", printCart2, true);
