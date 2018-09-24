@@ -1,19 +1,9 @@
-var total;
+
 var taxRate = 0.07;
 var salesRate = 0.5;
 
-function calcTotal ()
-{
-    var item1 = 6.5;
-    var item2 = 1000;
-    var item3 = 1000;
-    var item4 = 200;
+var cartAry = [["Plumbus", 6.5], ["Portal Gun", 1000], ["Portal Gun", 1000], ["Interdimensional Cable Box", 200]];
 
-    var subtotal = item1 + item2 + item3 + item4;
-
-    total = (subtotal * salesRate) + (subtotal *taxRate);
-    document.getElementById("total").innerHTML = Math.round(total*100) / 100;
-}
 function submitInfo() {
 	var nameinput = document.getElementById("nameinput");
     var emailinput = document.getElementById("emailinput");
@@ -28,7 +18,6 @@ function submitInfo() {
 	(nameinput.value && emailinput && addressinput && cityinput && stateinput && cardName.value && cardNum.value && expMonth.value && expYear.value && cvv.value) ? alert("Thanks for your order!") : alert("Please fill in all form fields.");
 }
 document.getElementById("submit").addEventListener("click", submitInfo, false);
-calcTotal();
 
 function printCart2() {
     var finalPrice = 0;
@@ -50,7 +39,8 @@ function printCart2() {
   var lineBreak = document.createElement("hr");
   trhr.appendChild(tdhr);
   tdhr.appendChild(lineBreak);
-
+  finalPrice = (finalPrice*salesRate) + (finalPrice*taxRate)
+  finalPrice = Math.round(finalPrice*100)/100;
   var trTotal = document.createElement("tr");
   var tdTotal = document.createElement("td");
   var tdTotalPrice = document.createElement("td");
