@@ -2,6 +2,7 @@
 var taxRate = 0.07;
 var salesRate = 0.5;
 
+var mortyAry =[];
 var cartAry = [["Plumbus", 6.5], ["Portal Gun", 1000], ["Portal Gun", 1000], ["Interdimensional Cable Box", 200]];
 
 function submitInfo() {
@@ -54,3 +55,25 @@ function printCart2() {
   document.getElementById("cartAryTbl").appendChild(trTotal);
 }
 window.addEventListener("load", printCart2, true);
+
+function addMorty(mortyNum) {  
+  var selectedMorty;
+  if (mortyNum == 1) {
+    selectedMorty = "Morty Smith of C-137";
+  }
+  else if (mortyNum == 2) {
+    selectedMorty = "Lawyer Morty";
+  }
+  else if (mortyNum == 3) {
+    selectedMorty = "Cop Morty";    
+  }
+  else if (mortyNum == 4) {
+    selectedMorty = "Campaign Manager Morty";
+  }
+  else {
+    selectedMorty = "Cronenberg Morty";
+  }
+  mortyAry.push(selectedMorty);
+  window.alert("You added " + selectedMorty + " to your cart." + "\n" +
+    "Morty Cart: " + mortyAry );  
+}
