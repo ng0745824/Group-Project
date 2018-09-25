@@ -56,8 +56,13 @@ function printCart2() {
 }
 window.addEventListener("load", printCart2, true);
 
-function addMorty(mortyNum) {  
+//this function adds the selected morty to an the morty array,
+//and prints the selected morty and the array in an alert
+function addMorty(mortyNum) {
+  //local variables  
   var selectedMorty;
+  var mortyCart = "";
+  //if logic that converts the int mortyNum into a string called selectedMorty
   if (mortyNum == 1) {
     selectedMorty = "Morty Smith of C-137";
   }
@@ -73,7 +78,13 @@ function addMorty(mortyNum) {
   else {
     selectedMorty = "Cronenberg Morty";
   }
+  //adds the selectedMorty string to the array
   mortyAry.push(selectedMorty);
+  //loop that fills the string mortyCart with the array, separated by spaces    
+  for(var i = 0; i < mortyAry.length; i++ ){
+    mortyCart += "\n" + mortyAry[i];
+  }
+  //alert that outputs all the data collected in this session. remember, the array is a global variable
   window.alert("You added " + selectedMorty + " to your cart." + "\n" +
-    "Morty Cart: " + mortyAry );  
+    "Morty Cart: " + mortyCart);
 }
